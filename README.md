@@ -60,20 +60,21 @@
 
 # Sprint 01
 ## User Stories
-- [ ] As a Front-end Developer, I want to create a user data editing interface so that administrators can easily update user information.
-- [ ] As a Front-end Developer, I want to create an interface for registering new users in the system so that administrators can add new users in an intuitive and secure way.
-- [ ] As a Back-end Developer, I want to implement the user deletion operation in the system so that it is possible to remove user profiles that should no longer be in the system.
-- [ ] As a Back-end Developer, I want to implement the user creation operation in the system so that users can be correctly registered with all necessary validations, allowing the inclusion of new profiles in the system.
-- [ ] As a Front-end Developer, I want to implement the user deletion functionality in the system so that administrators can remove user profiles that are no longer needed.
-- [ ] As a Front-end Developer, I want to create an interface that lists all users in the system with filtering and search functionalities so that administrators can view and manage existing user profiles.
-- [ ] As a Back-end Developer, I want to implement the user reading operation so that it is possible to list, view, and obtain details of user profiles registered in the system.
-- [ ] As a SPC User, I want to have proper handling of my database so that it is possible to increase the likelihood of success for my machine learning model.
-- [ ] As a SPC User, I want to have a dashboard for analyzing data that includes client analysis so that it is possible to understand how our transaction metrics are performing.
+- [x] As a Front-end Developer, I want to create a user data editing interface so that administrators can easily update user information.
+- [x] As a Front-end Developer, I want to create an interface for registering new users in the system so that administrators can add new users in an intuitive and secure way.
+- [x] As a Back-end Developer, I want to implement the user deletion operation in the system so that it is possible to remove user profiles that should no longer be in the system.
+- [x] As a Back-end Developer, I want to implement the user creation operation in the system so that users can be correctly registered with all necessary validations, allowing the inclusion of new profiles in the system.
+- [x] As a Front-end Developer, I want to implement the user deletion functionality in the system so that administrators can remove user profiles that are no longer needed.
+- [x] As a Front-end Developer, I want to create an interface that lists all users in the system with filtering and search functionalities so that administrators can view and manage existing user profiles.
+- [x] As a Back-end Developer, I want to implement the user reading operation so that it is possible to list, view, and obtain details of user profiles registered in the system.
+- [x] As a SPC User, I want to have proper handling of my database so that it is possible to increase the likelihood of success for my machine learning model.
+- [x] As a SPC User, I want to have a dashboard for analyzing data that includes client analysis so that it is possible to understand how our transaction metrics are performing.
 
 
 ## Burndown
 
-TO UPDATE
+![image](https://github.com/user-attachments/assets/b0fe6471-e82f-4e0a-ae3c-f2b298fdefa7)
+
 
 ### Tools Used
 Tool   | Description
@@ -85,31 +86,6 @@ Hotjar | Usability testing and data analysis
 VSCode | Feature programming  
 Postgres | Database creation and programming  
 MongoDB | Database creation and programming  
-
-### TAMSOMSAM
-
-#### TAM (Total Anddressable Market)
-XXXXXXXXXXXX
-
-#### SAM (Serviceable Available Market)
-XXXXXXXXXXXXX
-
-#### SOM (Serviceable Obtainable Market)
-XXXXXXXXXXXX
-
-### Benchmark
-
-> _XXXXXXXXXXXX_ - [TAB Engenharia](https://engenhariatab.com.br/tab-engenharia-diagnostica/?gclid=Cj0KCQjw0bunBhD9ARIsAAZl0E2TgZ-CqRer9tFJyl8F7Q2OT8Y4S-95A9C34mpwZkui4f9WVfzdWpIaAg71EALw_wcB)
-> _XXXXXXXXXXXX_ - [5+ Engenharia](https://5mais.com.br/)
-> _XXXXXXXXXXXX_ - [Produttivo](https://app.produttivo.com.br/works)
-
-## Pain and Need
-XXXXXXXXXXXX
-
-## Persona
-XXXXXXXXXXXX
-
-## User Journey
 
 
 ## Data Model
