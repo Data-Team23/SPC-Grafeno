@@ -1,14 +1,14 @@
 [submodule "SPC-Grafeno-Backend"]
 	path = SPC-Grafeno-Backend
-	url = https://github.com/Data-Team23/SPC-Grafeno-Backend.git
+	url = https://github.com/Data-Team23/SPC-Grafeno-Backend
 	branch = main
 
 [submodule "SPC-Grafeno-Frontend"]
 	path = SPC-Grafeno-Frontend
-	url = https://github.com/Data-Team23/SPC-Grafeno-Frontend.git
+	url = https://github.com/Data-Team23/SPC-Grafeno-Frontend
 	branch = main
 
 [submodule "SPC-Grafeno-Machine-Learning"]
 	path = SPC-Grafeno-Machine-Learning
-	url = https://github.com/Data-Team23/SPC-Grafeno-Machine-Learning.git
+	url = https://github.com/Data-Team23/SPC-Grafeno-Machine-Learning
 	branch = main
