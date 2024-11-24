@@ -38,6 +38,8 @@
 # Product Backlog
 <div> <table> <tr> <td><b>Priority</b></td> <td><b>Backlog</b></td> <td><b>Estimate in days</b></td> <td><b>Sprint</b></td> </tr> <tr> <td>High</td> <td>Creation of initial dashboards for data analysis</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Application of statistical analysis to data</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Creation of user CRUD operations</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Preparation of the database for model training</td> <td>10</td> <td>1</td> </tr> <tr> <td>High</td> <td>Implementation of user profile</td> <td>10</td> <td>1</td> </tr> <tr> <td>High</td> <td>Development of the machine learning model</td> <td>15</td> <td>2</td> </tr> <tr> <td>High</td> <td>Development of a place for dataset visualization</td> <td>5</td> <td>2</td> </tr> <tr> <td>Medium</td> <td>Development of health indicators for the machine learning model</td> <td>5</td> <td>3</td> </tr> <tr> <td>Medium</td> <td>User data exportation</td> <td>5</td> <td>3</td> </tr> </table> </div>
 
+# Requisitos Não Funcionais
+
 # Backlog Sprint 01
 <div> <table> <tr> <td><b>Priority</b></td> <td><b>Backlog</b></td> <td><b>Estimate in days</b></td> </tr> <tr> <td>High</td> <td>Creation of initial dashboards for data analysis</td> <td>5</td> </tr> <tr> <td>High</td> <td>Application of statistical analysis to data</td> <td>5</td> </tr> <tr> <td>High</td> <td>Creation of user CRUD operations</td> <td>5</td> </tr> <tr> <td>High</td> <td>Preparation of the database for model training</td> <td>10</td> </tr> <tr> <td>High</td> <td>Implementation of user profile</td> <td>10</td> </tr> </table> </div>
 
@@ -155,9 +157,198 @@
 ## User Stories
 <table border="1" cellpadding="5" cellspacing="0"> <tr> <td><b>User Story</b></td> <td><b>Critério de Aceitação</b></td> <td><b>DoD</b></td> <td><b>Prioridade</b></td> <td><b>Estimativa (dias)</b></td> </tr> <tr> <td>Como engenheiro de backend, quero integrar o banco de dados com a aplicação, para que os datasets sejam armazenados de forma persistente e possam ser usados pelo modelo de machine learning.</td> <td> - O banco de dados deve permitir armazenamento e consulta eficiente de datasets.<br> - Deve suportar dados de grande volume.<br> - A integração deve permitir atualização e remoção de dados. </td> <td> - A conexão com o banco está configurada e funcional.<br> - As operações de CRUD estão testadas e funcionais.<br> - Testes de carga no banco de dados estão validados. </td> <td>High</td> <td>5</td> </tr> <tr> <td>Como engenheiro de machine learning, quero implementar a versão final do modelo em produção, para que ele esteja disponível para uso através da API de backend.</td> <td> - O modelo deve ser convertido em um formato adequado para produção (e.g., pickle, TensorFlow SavedModel).<br> - O modelo deve ser carregado rapidamente.<br> - A versão em produção deve ser monitorada quanto à performance. </td> <td> - O modelo está rodando em um ambiente de produção com sucesso.<br> - Performance monitorada e validada sob diferentes condições de carga.<br> - Logs de execução configurados para rastrear falhas. </td> <td>High</td> <td>4</td> </tr> <tr> <td>Como desenvolvedor ou engenheiro de machine learning, quero documentar o modelo de machine learning e o software que o suporta, para que outros membros da equipe e futuros desenvolvedores possam entender, manter e evoluir o sistema com clareza.</td> <td> - A arquitetura do sistema deve ser descrita com diagramas claros.<br> - Os principais componentes do código devem ser documentados.<br> - Deve haver uma explicação detalhada sobre o funcionamento do modelo de ML.<br> - Instruções para instalação, configuração e uso do software devem estar presentes. </td> <td> - A documentação técnica está em formato claro e padronizado.<br> - Diagramas atualizados estão incluídos.<br> - Todos os endpoints da API estão documentados com exemplos.<br> - A documentação foi revisada e está acessível no repositório do projeto. </td> <td>High</td> <td>6</td> </tr> <tr> <td>Como engenheiro de machine learning, quero treinar e ajustar o modelo de machine learning, para que ele possa fornecer previsões precisas com base nos datasets fornecidos.</td> <td> - O modelo deve ter uma precisão mínima de X%.<br> - O overfitting e underfitting devem ser evitados.<br> - Logs de treinamento e métricas de performance devem estar disponíveis. </td> <td> - O modelo foi testado e ajustado em um ambiente de desenvolvimento.<br> - A precisão atingiu o valor definido.<br> - Os resultados do modelo foram validados com dados de teste. </td> <td>High</td> <td>7</td> </tr> <tr> <td>Como desenvolvedor backend, quero criar a tabela de usuário e a tabela de termos de LGPD no banco de dados, para que o sistema armazene de forma segura as informações dos usuários e o consentimento dos termos, atendendo aos requisitos legais de proteção de dados.</td> <td> - A Tabela de Usuário deve conter campos essenciais com restrições de integridade.<br> - A Tabela de Termos de LGPD deve ser preparada para múltiplas versões do termo.<br> - A relação entre tabelas deve garantir associação à versão mais recente do termo. </td> <td> - As tabelas foram criadas no banco de dados com restrições de integridade.<br> - Relacionamentos entre tabelas foram implementados corretamente.<br> - Estrutura documentada e revisada quanto à conformidade com a LGPD. </td> <td>High</td> <td>8</td> </tr> <tr> <td>Como desenvolvedor frontend, quero criar uma interface de usuário para visualização dos datasets, para que o usuário possa visualizar, filtrar e explorar os dados carregados.</td> <td> - A interface deve listar os datasets disponíveis.<br> - Deve permitir filtros e ordenação de dados.<br> - Deve ser responsiva e fácil de navegar. </td> <td> - Interface testada em diferentes resoluções.<br> - Funcionalidades de filtragem e ordenação validadas.<br> - Feedback visual sobre erros ou resultados vazios. </td> <td>High</td> <td>3</td> </tr> <tr> <td>Como desenvolvedor frontend, quero criar uma interface para o CRUD de usuários com conformidade à LGPD, para que o sistema permita a gestão eficiente dos dados dos usuários, garantindo que todos os processos atendam aos requisitos legais de proteção de dados.</td> <td> - A interface de cadastro deve permitir o registro de novos usuários com campos obrigatórios.<br> - Edição e consulta de dados dos usuários devem ser permitidas.<br> - A exclusão de usuário deve garantir anonimização conforme LGPD. </td> <td> - A view de CRUD foi implementada.<br> - A lógica de aceite da LGPD está integrada.<br> - Testes de funcionalidade foram realizados e as rotas de backend documentadas. </td> <td>High</td> <td>2</td> </tr> <tr> <td>Como desenvolvedor backend/frontend, quero implementar a funcionalidade de termos de condição e revogação no sistema, para que o usuário possa aceitar ou revogar termos de uso e consentimento em conformidade com a LGPD.</td> <td> - Interface clara para exibir e aceitar o termo.<br> - Histórico de termos aceitos registrado.<br> - Interface para revogação de consentimento visível.<br> - Gestão de termos na administração disponível. </td> <td> - Funcionalidade de aceite e revogação implementada e testada.<br> - Documentação completa com exemplos e diagramas de fluxo.<br> - Revisão quanto à conformidade com a LGPD. </td> <td>High</td> <td>5</td> </tr> <tr> <td>Como engenheiro de machine learning, quero estudar e comparar diferentes algoritmos de machine learning, para selecionar o modelo que oferece a melhor performance e precisão para o problema.</td> <td> - Testar pelo menos 3 algoritmos diferentes.<br> - Avaliar modelos com as mesmas métricas.<br> - Selecionar o modelo com base em performance e complexidade. </td> <td> - Relatório comparativo dos modelos foi produzido.<br> - Melhor modelo validado com dados de teste.<br> - Logs de experimentação gerados para cada modelo. </td> <td>High</td> <td>4</td> </tr> </table>
 
+## Burndown
 
 ![image](https://github.com/user-attachments/assets/aea70066-2a2b-4a71-918a-91cdcd86d89e)
 
+# Sprint 03
+## User Stories
+<table border="1" cellpadding="10" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User Story</th>
+      <th>Critérios de Aceitação</th>
+      <th>Definition of Done (DoD)</th>
+      <th>Prioridade</th>
+      <th>Estimativa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Como engenheiro de backend, quero desenvolver uma API para expor o modelo de machine learning, para que o frontend possa consumir os resultados gerados de forma segura e eficiente.</td>
+      <td>
+        <ul>
+          <li>API deve receber dados no formato correto (e.g., JSON).</li>
+          <li>Chamar o modelo de ML e retornar resultados.</li>
+          <li>Usar autenticação básica (e.g., OAuth 2.0).</li>
+          <li>Implementar logs de erro.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Documentação disponível (Swagger ou similar).</li>
+          <li>Testes unitários e de integração passando.</li>
+          <li>Segurança validada.</li>
+          <li>Desempenho testado para garantir tempos de resposta aceitáveis.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>2d</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Como usuário da SPC Grafeno, quero visualizar um gráfico interativo de RFM para facilitar a análise do comportamento do cliente.</td>
+      <td>
+        <ul>
+          <li>Gráfico interativo com eixos R, F e M.</li>
+          <li>Filtros por período e segmento de clientes.</li>
+          <li>Tooltip/hover com detalhes do cliente.</li>
+          <li>Exportação de dados em CSV ou Excel.</li>
+          <li>Responsivo e rápido mesmo com grande volume de dados.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Gráfico exibido corretamente com interatividade.</li>
+          <li>Filtros e exportação funcionando.</li>
+          <li>Desempenho validado para grande volume de dados.</li>
+          <li>Testado em diferentes dispositivos.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>10d</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Como desenvolvedor frontend, quero consumir a API do modelo de ML, para que o usuário possa submeter datasets e receber os resultados.</td>
+      <td>
+        <ul>
+          <li>Upload de dados e submissão à API.</li>
+          <li>Exibição clara dos resultados preditivos.</li>
+          <li>Mensagens de erro amigáveis.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Conexão com a API validada.</li>
+          <li>Testes de interface realizados.</li>
+          <li>Feedback visual consistente com a experiência do usuário.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>3d</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Como analista de dados, quero melhorar a visualização do dashboard para que fique mais claro e compreensível.</td>
+      <td>
+        <ul>
+          <li>Dados do dashboard conformes com o backend.</li>
+          <li>Melhorias no design aplicadas.</li>
+          <li>Mudança para conceitos corretos.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Dashboard com melhorias implementadas.</li>
+          <li>Dados atualizados e interligados ao sistema.</li>
+          <li>Feedback positivo do time.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>5d</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Como usuário, quero visualizar uma tabela que agrupe clientes com métricas RFM e clusters, para facilitar a análise segmentada.</td>
+      <td>
+        <ul>
+          <li>Tabela exibe Nome, RFM e Clusters corretamente.</li>
+          <li>Agrupamento visual por cluster.</li>
+          <li>Filtros e ordenação disponíveis.</li>
+          <li>Design responsivo e alinhado ao estilo do sistema.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Tabela implementada e funcional.</li>
+          <li>Testada em diferentes dispositivos.</li>
+          <li>Feedback dos stakeholders implementado.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>2d</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Como desenvolvedor, quero atualizar o endpoint PUT de perfil do usuário para registrar um log sobre mudanças nos termos de LGPD e itens opcionais.</td>
+      <td>
+        <ul>
+          <li>Log com data e hora para atualizações de termos LGPD.</li>
+          <li>Registro de itens opcionais alterados com novos valores.</li>
+          <li>Persistência do log na tabela de LGPD associada ao usuário.</li>
+          <li>Acessibilidade para auditoria pelo administrador.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Endpoint atualizado com logs funcionando corretamente.</li>
+          <li>Histórico de alterações completo disponível.</li>
+          <li>Testes validados.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>3d</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Como desenvolvedor, quero configurar tarefas assíncronas com Celery para backups de dados LGPD no MinIO, garantindo segurança e recuperação.</td>
+      <td>
+        <ul>
+          <li>Configurar tarefa Celery para backups periódicos.</li>
+          <li>Exportação de dados para MinIO com criptografia.</li>
+          <li>Gerenciamento de erros e retentativas.</li>
+          <li>Notificação de falhas ao administrador.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Backup no MinIO implementado e testado.</li>
+          <li>Dados criptografados e versionados.</li>
+          <li>Documentação completa.</li>
+        </ul>
+      </td>
+      <td>High</td>
+      <td>3d</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Como gestor de produtos, quero aprimorar os clusters de clientes para priorizar aqueles com maior potencial de conversão e retenção.</td>
+      <td>
+        <ul>
+          <li>Clusters criados com base em dados históricos.</li>
+          <li>Etiquetas de prioridade para cada cluster.</li>
+          <li>Separação interpretável baseada em variáveis relevantes.</li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li>Modelo de clustering implementado e treinado.</li>
+          <li>Documentação revisada e acessível.</li>
+          <li>Validação pelos stakeholders concluída.</li>
+        </ul>
+      </td>
+      <td>Medium</td>
+      <td>5d</td>
+    </tr>
+  </tbody>
+</table>
+
+## Burndown
+
+![Imagem do WhatsApp de 2024-11-24 à(s) 17 08 26_814a1312](https://github.com/user-attachments/assets/12ec6c79-b668-4f72-8dc5-c41515a91c02)
 
 
 ### Tools Used
@@ -170,6 +361,8 @@ Hotjar | Usability testing and data analysis
 VSCode | Feature programming  
 Postgres | Database creation and programming  
 MongoDB | Database creation and programming  
+
+
 
 
 ## Data Model
