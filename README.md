@@ -38,8 +38,59 @@
 # Product Backlog
 <div> <table> <tr> <td><b>Priority</b></td> <td><b>Backlog</b></td> <td><b>Estimate in days</b></td> <td><b>Sprint</b></td> </tr> <tr> <td>High</td> <td>Creation of initial dashboards for data analysis</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Application of statistical analysis to data</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Creation of user CRUD operations</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Preparation of the database for model training</td> <td>10</td> <td>1</td> </tr> <tr> <td>High</td> <td>Implementation of user profile</td> <td>10</td> <td>1</td> </tr> <tr> <td>High</td> <td>Development of the machine learning model</td> <td>15</td> <td>2</td> </tr> <tr> <td>High</td> <td>Development of a place for dataset visualization</td> <td>5</td> <td>2</td> </tr> <tr> <td>Medium</td> <td>Development of health indicators for the machine learning model</td> <td>5</td> <td>3</td> </tr> <tr> <td>Medium</td> <td>User data exportation</td> <td>5</td> <td>3</td> </tr> </table> </div>
 
-# Requisitos Não Funcionais
+## Requisitos Não Funcionais
+### Consentimento Explito
+**Objetivo**: Coletar e registrar o consentimento explícito dos usuários para o tratamento de seus dados pessoais.
 
+**Frontend**
+- Criar uma página/modal de consentimento de dados;
+- Exibir informações claras sobre o que será coletado e como será usado;
+- Botões para "Aceitar" ou "Rejeitar", ou um checkbox;
+- Guardar a resposta do usuário (Aceitar/Rejeitar);
+- Armazenar Resposta do Usuário: Pinia (para gerenciar o estado) ou diretamente via chamadas API com Axios para enviar a resposta ao back-end.
+
+**Backend**
+- Criar um modelo no Django para armazenar o consentimento.
+- API para salvar/consultar o consentimento do usuário.
+- Proteger os dados de consentimento (uso de criptografia).
+- Criar uma rota para revogação de consentimento e implementar a lógica no back-end.
+- Segurança dos Dados de Consentimento: Implementar criptografia com a biblioteca cryptography ou usar campos encriptados no Django. Implementar criação de usuário e interação de usuário com o sistema mediante a token;
+- Rota para Revogação de Consentimento: Configurar uma rota em DRF para que o usuário possa revogar seu consentimento, e gerenciar a lógica de revogação no Django.
+
+### Direito de Acesso e Correção 
+**Objetivo**: Permitir que os usuários acessem, corrijam e atualizem seus dados pessoais.
+
+**Frontend**
+- Criar uma página de perfil onde o usuário pode ver seus dados.
+- Botões para "Editar Dados" e "Salvar Alterações".
+- Interface para solicitar a exclusão ou modificação de dados
+- API para Retornar Dados Pessoais: Usar Django Rest Framework para criar endpoints que retornem os dados do usuário.
+- API para Atualização de Dados: Implementar uma API com DRF que permita a edição dos dados, validando as informações antes de salvar.
+- Validações e Proteção de Dados: Implementar validações com Django Forms ou serializers em DRF, e proteger as rotas com autenticação (como JWT).
+- Notificação de Alterações: Usar Django Signals ou Celery para enviar notificações por e-mail, utilizando a biblioteca django-smtp ou sendgrid.
+
+**Backend**
+- Criar uma API para retornar os dados pessoais do usuário.
+- Criar uma API para atualização dos dados pessoais.
+- Implementar validações e proteção dos dados atualizados.
+- Notificar o usuário sobre as mudanças via e-mail ou na aplicação.
+
+### Portabilidade de Dados
+**Objetivo**: Permitir que os usuários exportem seus dados pessoais em formato estruturado e legível por máquina.
+
+**Frontend**
+- Criar uma opção no perfil para "Exportar Meus Dados".
+- Botão para iniciar a exportação.
+- Exibir mensagem de sucesso/falha na exportação.
+
+**Backend**
+- Criar uma API para exportar dados em formatos como JSON/CSV.
+- Proteger o processo de exportação (autenticação, links temporários).
+- Implementar logs para monitorar as exportações de dados.
+- API para Exportação de Dados: Criar endpoints em Django Rest Framework para gerar e fornecer os dados em formatos como JSON ou CSV.
+- Segurança na Exportação: Implementar autenticação e autorização com DRF, gerar links de download temporários, e garantir que a exportação seja segura.
+- Logs de Exportação: Usar Django logging framework para registrar as exportações de dados, monitorando acessos e atividades.
+  
 # Backlog Sprint 01
 <div> <table> <tr> <td><b>Priority</b></td> <td><b>Backlog</b></td> <td><b>Estimate in days</b></td> </tr> <tr> <td>High</td> <td>Creation of initial dashboards for data analysis</td> <td>5</td> </tr> <tr> <td>High</td> <td>Application of statistical analysis to data</td> <td>5</td> </tr> <tr> <td>High</td> <td>Creation of user CRUD operations</td> <td>5</td> </tr> <tr> <td>High</td> <td>Preparation of the database for model training</td> <td>10</td> </tr> <tr> <td>High</td> <td>Implementation of user profile</td> <td>10</td> </tr> </table> </div>
 
