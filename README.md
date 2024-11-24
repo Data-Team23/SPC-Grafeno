@@ -38,58 +38,72 @@
 # Product Backlog
 <div> <table> <tr> <td><b>Priority</b></td> <td><b>Backlog</b></td> <td><b>Estimate in days</b></td> <td><b>Sprint</b></td> </tr> <tr> <td>High</td> <td>Creation of initial dashboards for data analysis</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Application of statistical analysis to data</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Creation of user CRUD operations</td> <td>5</td> <td>1</td> </tr> <tr> <td>High</td> <td>Preparation of the database for model training</td> <td>10</td> <td>1</td> </tr> <tr> <td>High</td> <td>Implementation of user profile</td> <td>10</td> <td>1</td> </tr> <tr> <td>High</td> <td>Development of the machine learning model</td> <td>15</td> <td>2</td> </tr> <tr> <td>High</td> <td>Development of a place for dataset visualization</td> <td>5</td> <td>2</td> </tr> <tr> <td>Medium</td> <td>Development of health indicators for the machine learning model</td> <td>5</td> <td>3</td> </tr> <tr> <td>Medium</td> <td>User data exportation</td> <td>5</td> <td>3</td> </tr> </table> </div>
 
-## Requisitos Não Funcionais
-### Consentimento Explito
-**Objetivo**: Coletar e registrar o consentimento explícito dos usuários para o tratamento de seus dados pessoais.
+<h2>Non-Functional Requirements</h2>
 
-**Frontend**
-- Criar uma página/modal de consentimento de dados;
-- Exibir informações claras sobre o que será coletado e como será usado;
-- Botões para "Aceitar" ou "Rejeitar", ou um checkbox;
-- Guardar a resposta do usuário (Aceitar/Rejeitar);
-- Armazenar Resposta do Usuário: Pinia (para gerenciar o estado) ou diretamente via chamadas API com Axios para enviar a resposta ao back-end.
+<h3>Explicit Consent</h3>
+<strong>Objective:</strong> Collect and record explicit user consent for the processing of their personal data.
 
-**Backend**
-- Criar um modelo no Django para armazenar o consentimento.
-- API para salvar/consultar o consentimento do usuário.
-- Proteger os dados de consentimento (uso de criptografia).
-- Criar uma rota para revogação de consentimento e implementar a lógica no back-end.
-- Segurança dos Dados de Consentimento: Implementar criptografia com a biblioteca cryptography ou usar campos encriptados no Django. Implementar criação de usuário e interação de usuário com o sistema mediante a token;
-- Rota para Revogação de Consentimento: Configurar uma rota em DRF para que o usuário possa revogar seu consentimento, e gerenciar a lógica de revogação no Django.
+<strong>Frontend</strong>
+<ul>
+    <li>Create a consent page/modal.</li>
+    <li>Display clear information about what will be collected and how it will be used.</li>
+    <li>Provide buttons for "Accept" or "Reject," or a checkbox.</li>
+    <li>Store the user's response (Accept/Reject).</li>
+    <li>Store User Response: Use Pinia (to manage state) or direct API calls with Axios to send the response to the backend.</li>
+</ul>
 
-### Direito de Acesso e Correção 
-**Objetivo**: Permitir que os usuários acessem, corrijam e atualizem seus dados pessoais.
+<strong>Backend</strong>
+<ul>
+    <li>Create a model in Django to store consent data.</li>
+    <li>API to save/query user consent.</li>
+    <li>Secure consent data (encryption).</li>
+    <li>Create a route for consent withdrawal and implement logic in the backend.</li>
+    <li>Consent Data Security: Implement encryption using the <code>cryptography</code> library or Django encrypted fields. Enable user creation and interaction with the system using tokens.</li>
+    <li>Route for Consent Withdrawal: Configure a route in DRF for users to revoke their consent, and manage the revocation logic in Django.</li>
+</ul>
 
-**Frontend**
-- Criar uma página de perfil onde o usuário pode ver seus dados.
-- Botões para "Editar Dados" e "Salvar Alterações".
-- Interface para solicitar a exclusão ou modificação de dados
-- API para Retornar Dados Pessoais: Usar Django Rest Framework para criar endpoints que retornem os dados do usuário.
-- API para Atualização de Dados: Implementar uma API com DRF que permita a edição dos dados, validando as informações antes de salvar.
-- Validações e Proteção de Dados: Implementar validações com Django Forms ou serializers em DRF, e proteger as rotas com autenticação (como JWT).
-- Notificação de Alterações: Usar Django Signals ou Celery para enviar notificações por e-mail, utilizando a biblioteca django-smtp ou sendgrid.
+<h3>Right to Access and Correction</h3>
+<strong>Objective:</strong> Allow users to access, correct, and update their personal data.
 
-**Backend**
-- Criar uma API para retornar os dados pessoais do usuário.
-- Criar uma API para atualização dos dados pessoais.
-- Implementar validações e proteção dos dados atualizados.
-- Notificar o usuário sobre as mudanças via e-mail ou na aplicação.
+<strong>Frontend</strong>
+<ul>
+    <li>Create a profile page where users can view their data.</li>
+    <li>Add buttons for "Edit Data" and "Save Changes."</li>
+    <li>Interface to request data deletion or modification.</li>
+    <li>API to Return Personal Data: Use Django Rest Framework to create endpoints that return user data.</li>
+    <li>API for Data Updates: Implement an API with DRF to edit user data, validating the information before saving.</li>
+    <li>Validations and Data Protection: Use Django Forms or DRF serializers for validations and secure routes with authentication (e.g., JWT).</li>
+    <li>Change Notifications: Use Django Signals or Celery to send email notifications using libraries like <code>django-smtp</code> or SendGrid.</li>
+</ul>
 
-### Portabilidade de Dados
-**Objetivo**: Permitir que os usuários exportem seus dados pessoais em formato estruturado e legível por máquina.
+<strong>Backend</strong>
+<ul>
+    <li>Create an API to return user personal data.</li>
+    <li>Create an API for updating personal data.</li>
+    <li>Implement validations and protection for updated data.</li>
+    <li>Notify users of changes via email or in-app notifications.</li>
+</ul>
 
-**Frontend**
-- Criar uma opção no perfil para "Exportar Meus Dados".
-- Botão para iniciar a exportação.
-- Exibir mensagem de sucesso/falha na exportação.
+<h3>Data Portability</h3>
+<strong>Objective:</strong> Allow users to export their personal data in a structured and machine-readable format.
 
-**Backend**
-- Criar uma API para exportar dados em formatos como JSON/CSV.
-- Proteger o processo de exportação (autenticação, links temporários).
-- Implementar logs para monitorar as exportações de dados.
-- API para Exportação de Dados: Criar endpoints em Django Rest Framework para gerar e fornecer os dados em formatos como JSON ou CSV.
-- Segurança na Exportação: Implementar autenticação e autorização com DRF, gerar links de download temporários, e garantir que a exportação seja segura.
-- Logs de Exportação: Usar Django logging framework para registrar as exportações de dados, monitorando acessos e atividades.
+<strong>Frontend</strong>
+<ul>
+    <li>Create an option in the profile for "Export My Data."</li>
+    <li>Add a button to initiate the export.</li>
+    <li>Display success/failure messages for the export process.</li>
+</ul>
+
+<strong>Backend</strong>
+<ul>
+    <li>Create an API to export data in formats like JSON/CSV.</li>
+    <li>Secure the export process (authentication, temporary links).</li>
+    <li>Implement logs to monitor data exports.</li>
+    <li>API for Data Export: Create endpoints in Django Rest Framework to generate and provide data in JSON or CSV formats.</li>
+    <li>Export Security: Implement authentication and authorization in DRF, generate temporary download links, and ensure secure data export.</li>
+    <li>Export Logs: Use Django's logging framework to record data exports, monitoring access and activities.</li>
+</ul>
+
   
 # Backlog Sprint 01
 <div> <table> <tr> <td><b>Priority</b></td> <td><b>Backlog</b></td> <td><b>Estimate in days</b></td> </tr> <tr> <td>High</td> <td>Creation of initial dashboards for data analysis</td> <td>5</td> </tr> <tr> <td>High</td> <td>Application of statistical analysis to data</td> <td>5</td> </tr> <tr> <td>High</td> <td>Creation of user CRUD operations</td> <td>5</td> </tr> <tr> <td>High</td> <td>Preparation of the database for model training</td> <td>10</td> </tr> <tr> <td>High</td> <td>Implementation of user profile</td> <td>10</td> </tr> </table> </div>
@@ -110,86 +124,86 @@
 - ``Mongo DB``
 - ``Postgres``
 
-# Sprint 01
-## User Stories
+<h1>Sprint 01</h1>
+<h2>User Stories</h2>
 <div>
     <table border="1" cellpadding="5" cellspacing="0">
         <tr>
             <td><b>User Story</b></td>
-            <td><b>Critério de Aceitação</b></td>
+            <td><b>Acceptance Criteria</b></td>
             <td><b>DoD</b></td>
             <td><b>Priority</b></td>
             <td><b>Backlog</b></td>
             <td><b>Estimate in days</b></td>
         </tr>
         <tr>
-            <td>Como Front-end Developer, quero criar uma interface de edição de dados de usuário para que administradores possam facilmente atualizar informações de usuários.</td>
-            <td>- A interface deve permitir a edição de todos os campos de dados do usuário.<br>- Deve haver validação para entradas obrigatórias.<br>- Interface amigável e intuitiva.</td>
-            <td>- Interface de edição testada e validada.<br>- Funcionalidades de validação verificadas.<br>- Feedback visual para erros de entrada implementado.</td>
+            <td>As a Front-end Developer, I want to create a user data editing interface so that administrators can easily update user information.</td>
+            <td>- The interface should allow editing all user data fields.<br>- Validation for required fields must be implemented.<br>- The interface should be user-friendly and intuitive.</td>
+            <td>- Editing interface tested and validated.<br>- Validation functionalities verified.<br>- Visual feedback for input errors implemented.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como Front-end Developer, quero criar uma interface para cadastro de novos usuários no sistema para que administradores possam adicionar novos usuários de forma intuitiva e segura.</td>
-            <td>- Interface de cadastro deve incluir todos os campos obrigatórios.<br>- Validação de dados com mensagens de erro amigáveis.<br>- Confirmação de cadastro ao final do processo.</td>
-            <td>- Interface de cadastro implementada e testada.<br>- Todas as validações de campo funcionais.<br>- Testes de experiência do usuário realizados.</td>
+            <td>As a Front-end Developer, I want to create an interface for registering new users in the system so that administrators can add new users intuitively and securely.</td>
+            <td>- The registration interface must include all required fields.<br>- Data validation with user-friendly error messages.<br>- Registration confirmation at the end of the process.</td>
+            <td>- Registration interface implemented and tested.<br>- All field validations functional.<br>- User experience tests completed.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como Back-end Developer, quero implementar a operação de exclusão de usuário no sistema para que seja possível remover perfis de usuários que não devem mais estar no sistema.</td>
-            <td>- API deve permitir exclusão de usuários de forma segura.<br>- Deleção deve estar restrita a usuários com permissão.<br>- Exclusão deve ser confirmada antes da ação final.</td>
-            <td>- Endpoint de exclusão de usuário implementado e documentado.<br>- Permissões e restrições testadas.<br>- Log de atividade de exclusão gerado.</td>
+            <td>As a Back-end Developer, I want to implement the user deletion operation in the system so that profiles that should no longer exist in the system can be removed.</td>
+            <td>- API must allow secure deletion of users.<br>- Deletion should be restricted to authorized users.<br>- Deletion must be confirmed before the final action.</td>
+            <td>- User deletion endpoint implemented and documented.<br>- Permissions and restrictions tested.<br>- Deletion activity logs generated.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como Back-end Developer, quero implementar a operação de criação de usuário no sistema para que usuários possam ser registrados corretamente com todas as validações necessárias, permitindo a inclusão de novos perfis no sistema.</td>
-            <td>- Endpoint de criação deve validar todos os campos obrigatórios.<br>- Deve gerar um erro se os dados estiverem ausentes ou incorretos.<br>- Criação deve ser confirmada com sucesso.</td>
-            <td>- Endpoint de criação implementado e documentado.<br>- Testes de validação concluídos.<br>- Logs de criação registrados.</td>
+            <td>As a Back-end Developer, I want to implement the user creation operation in the system so that users can be properly registered with all necessary validations, allowing new profiles to be added to the system.</td>
+            <td>- Creation endpoint must validate all required fields.<br>- Should generate an error if data is missing or incorrect.<br>- Successful creation should be confirmed.</td>
+            <td>- Creation endpoint implemented and documented.<br>- Validation tests completed.<br>- Creation logs recorded.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como Front-end Developer, quero implementar a funcionalidade de exclusão de usuário no sistema para que administradores possam remover perfis de usuário que não são mais necessários.</td>
-            <td>- A interface de exclusão deve exibir uma confirmação antes da exclusão.<br>- Deleção deve ser restrita a administradores.<br>- Feedback visual após exclusão com mensagem de sucesso.</td>
-            <td>- Funcionalidade de exclusão implementada na interface.<br>- Mensagens de confirmação e sucesso exibidas.<br>- Testes de funcionalidade e permissão realizados.</td>
+            <td>As a Front-end Developer, I want to implement the user deletion functionality in the system so that administrators can remove user profiles that are no longer needed.</td>
+            <td>- The deletion interface must display a confirmation before proceeding.<br>- Deletion should be restricted to administrators.<br>- Visual feedback after deletion with a success message.</td>
+            <td>- Deletion functionality implemented in the interface.<br>- Confirmation and success messages displayed.<br>- Functionality and permission tests completed.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como Front-end Developer, quero criar uma interface que liste todos os usuários no sistema com funcionalidades de filtro e busca para que administradores possam visualizar e gerenciar perfis de usuário existentes.</td>
-            <td>- A interface deve listar todos os usuários cadastrados.<br>- Deve permitir filtrar e buscar usuários por atributos.<br>- Interface responsiva e fácil de navegar.</td>
-            <td>- Funcionalidade de listagem e filtro testada.<br>- Pesquisa de usuário funcional.<br>- Interface responsiva e validada em diferentes resoluções.</td>
+            <td>As a Front-end Developer, I want to create an interface that lists all users in the system with filter and search functionalities so that administrators can view and manage existing user profiles.</td>
+            <td>- The interface must list all registered users.<br>- Should allow filtering and searching users by attributes.<br>- Responsive and easy-to-navigate interface.</td>
+            <td>- Listing and filtering functionality tested.<br>- User search functional.<br>- Responsive interface validated on different resolutions.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como Back-end Developer, quero implementar a operação de leitura de usuários para que seja possível listar, visualizar e obter detalhes dos perfis de usuários cadastrados no sistema.</td>
-            <td>- Endpoint de leitura deve retornar lista de usuários com detalhes completos.<br>- Deve permitir busca por identificadores.<br>- Respostas rápidas e consistentes.</td>
-            <td>- Endpoint de leitura implementado e documentado.<br>- Testes de busca e desempenho realizados.<br>- Logs de acesso e busca ativados.</td>
+            <td>As a Back-end Developer, I want to implement the user read operation so that it is possible to list, view, and obtain details of registered user profiles in the system.</td>
+            <td>- Read endpoint must return a list of users with full details.<br>- Should allow searches by identifiers.<br>- Fast and consistent responses.</td>
+            <td>- Read endpoint implemented and documented.<br>- Search and performance tests completed.<br>- Access and search logs enabled.</td>
             <td>High</td>
             <td>Creation of user CRUD operations</td>
             <td>5</td>
         </tr>
         <tr>
-            <td>Como usuário do SPC, quero ter o tratamento adequado do meu banco de dados para que seja possível aumentar a probabilidade de sucesso do meu modelo de machine learning.</td>
-            <td>- O banco de dados deve estar otimizado para armazenamento de dados grandes.<br>- A estrutura de dados deve ser compatível com os requisitos do modelo.<br>- Deve permitir fácil recuperação de dados.</td>
-            <td>- Banco de dados otimizado e revisado.<br>- Validação de compatibilidade com o modelo de machine learning.<br>- Testes de recuperação e desempenho realizados.</td>
+            <td>As an SPC user, I want proper handling of my database so that the probability of success for my machine learning model increases.</td>
+            <td>- The database must be optimized for storing large datasets.<br>- Data structure should meet model requirements.<br>- Easy data retrieval must be enabled.</td>
+            <td>- Database optimized and reviewed.<br>- Validation of compatibility with the machine learning model.<br>- Retrieval and performance tests completed.</td>
             <td>High</td>
             <td>Preparation of the database for model training</td>
             <td>10</td>
         </tr>
         <tr>
-            <td>Como usuário do SPC, quero ter um dashboard para análise de dados que inclua a análise de clientes para que seja possível entender como estão as métricas das nossas transações.</td>
-            <td>- O dashboard deve exibir métricas transacionais em tempo real.<br>- Deve permitir segmentação e análise detalhada de clientes.<br>- Visualizações gráficas intuitivas.</td>
-            <td>- Dashboard implementado e testado.<br>- Visualizações e filtros funcionais.<br>- Acessível e otimizado para desempenho.</td>
+            <td>As an SPC user, I want a dashboard for data analysis that includes client analysis so that I can understand the metrics of our transactions.</td>
+            <td>- The dashboard must display transactional metrics in real-time.<br>- Should allow segmentation and detailed client analysis.<br>- Intuitive graphical visualizations.</td>
+            <td>- Dashboard implemented and tested.<br>- Functional visualizations and filters.<br>- Accessible and optimized for performance.</td>
             <td>High</td>
             <td>Creation of initial dashboards for data analysis</td>
             <td>5</td>
@@ -206,7 +220,154 @@
 
 # Sprint 02
 ## User Stories
-<table border="1" cellpadding="5" cellspacing="0"> <tr> <td><b>User Story</b></td> <td><b>Critério de Aceitação</b></td> <td><b>DoD</b></td> <td><b>Prioridade</b></td> <td><b>Estimativa (dias)</b></td> </tr> <tr> <td>Como engenheiro de backend, quero integrar o banco de dados com a aplicação, para que os datasets sejam armazenados de forma persistente e possam ser usados pelo modelo de machine learning.</td> <td> - O banco de dados deve permitir armazenamento e consulta eficiente de datasets.<br> - Deve suportar dados de grande volume.<br> - A integração deve permitir atualização e remoção de dados. </td> <td> - A conexão com o banco está configurada e funcional.<br> - As operações de CRUD estão testadas e funcionais.<br> - Testes de carga no banco de dados estão validados. </td> <td>High</td> <td>5</td> </tr> <tr> <td>Como engenheiro de machine learning, quero implementar a versão final do modelo em produção, para que ele esteja disponível para uso através da API de backend.</td> <td> - O modelo deve ser convertido em um formato adequado para produção (e.g., pickle, TensorFlow SavedModel).<br> - O modelo deve ser carregado rapidamente.<br> - A versão em produção deve ser monitorada quanto à performance. </td> <td> - O modelo está rodando em um ambiente de produção com sucesso.<br> - Performance monitorada e validada sob diferentes condições de carga.<br> - Logs de execução configurados para rastrear falhas. </td> <td>High</td> <td>4</td> </tr> <tr> <td>Como desenvolvedor ou engenheiro de machine learning, quero documentar o modelo de machine learning e o software que o suporta, para que outros membros da equipe e futuros desenvolvedores possam entender, manter e evoluir o sistema com clareza.</td> <td> - A arquitetura do sistema deve ser descrita com diagramas claros.<br> - Os principais componentes do código devem ser documentados.<br> - Deve haver uma explicação detalhada sobre o funcionamento do modelo de ML.<br> - Instruções para instalação, configuração e uso do software devem estar presentes. </td> <td> - A documentação técnica está em formato claro e padronizado.<br> - Diagramas atualizados estão incluídos.<br> - Todos os endpoints da API estão documentados com exemplos.<br> - A documentação foi revisada e está acessível no repositório do projeto. </td> <td>High</td> <td>6</td> </tr> <tr> <td>Como engenheiro de machine learning, quero treinar e ajustar o modelo de machine learning, para que ele possa fornecer previsões precisas com base nos datasets fornecidos.</td> <td> - O modelo deve ter uma precisão mínima de X%.<br> - O overfitting e underfitting devem ser evitados.<br> - Logs de treinamento e métricas de performance devem estar disponíveis. </td> <td> - O modelo foi testado e ajustado em um ambiente de desenvolvimento.<br> - A precisão atingiu o valor definido.<br> - Os resultados do modelo foram validados com dados de teste. </td> <td>High</td> <td>7</td> </tr> <tr> <td>Como desenvolvedor backend, quero criar a tabela de usuário e a tabela de termos de LGPD no banco de dados, para que o sistema armazene de forma segura as informações dos usuários e o consentimento dos termos, atendendo aos requisitos legais de proteção de dados.</td> <td> - A Tabela de Usuário deve conter campos essenciais com restrições de integridade.<br> - A Tabela de Termos de LGPD deve ser preparada para múltiplas versões do termo.<br> - A relação entre tabelas deve garantir associação à versão mais recente do termo. </td> <td> - As tabelas foram criadas no banco de dados com restrições de integridade.<br> - Relacionamentos entre tabelas foram implementados corretamente.<br> - Estrutura documentada e revisada quanto à conformidade com a LGPD. </td> <td>High</td> <td>8</td> </tr> <tr> <td>Como desenvolvedor frontend, quero criar uma interface de usuário para visualização dos datasets, para que o usuário possa visualizar, filtrar e explorar os dados carregados.</td> <td> - A interface deve listar os datasets disponíveis.<br> - Deve permitir filtros e ordenação de dados.<br> - Deve ser responsiva e fácil de navegar. </td> <td> - Interface testada em diferentes resoluções.<br> - Funcionalidades de filtragem e ordenação validadas.<br> - Feedback visual sobre erros ou resultados vazios. </td> <td>High</td> <td>3</td> </tr> <tr> <td>Como desenvolvedor frontend, quero criar uma interface para o CRUD de usuários com conformidade à LGPD, para que o sistema permita a gestão eficiente dos dados dos usuários, garantindo que todos os processos atendam aos requisitos legais de proteção de dados.</td> <td> - A interface de cadastro deve permitir o registro de novos usuários com campos obrigatórios.<br> - Edição e consulta de dados dos usuários devem ser permitidas.<br> - A exclusão de usuário deve garantir anonimização conforme LGPD. </td> <td> - A view de CRUD foi implementada.<br> - A lógica de aceite da LGPD está integrada.<br> - Testes de funcionalidade foram realizados e as rotas de backend documentadas. </td> <td>High</td> <td>2</td> </tr> <tr> <td>Como desenvolvedor backend/frontend, quero implementar a funcionalidade de termos de condição e revogação no sistema, para que o usuário possa aceitar ou revogar termos de uso e consentimento em conformidade com a LGPD.</td> <td> - Interface clara para exibir e aceitar o termo.<br> - Histórico de termos aceitos registrado.<br> - Interface para revogação de consentimento visível.<br> - Gestão de termos na administração disponível. </td> <td> - Funcionalidade de aceite e revogação implementada e testada.<br> - Documentação completa com exemplos e diagramas de fluxo.<br> - Revisão quanto à conformidade com a LGPD. </td> <td>High</td> <td>5</td> </tr> <tr> <td>Como engenheiro de machine learning, quero estudar e comparar diferentes algoritmos de machine learning, para selecionar o modelo que oferece a melhor performance e precisão para o problema.</td> <td> - Testar pelo menos 3 algoritmos diferentes.<br> - Avaliar modelos com as mesmas métricas.<br> - Selecionar o modelo com base em performance e complexidade. </td> <td> - Relatório comparativo dos modelos foi produzido.<br> - Melhor modelo validado com dados de teste.<br> - Logs de experimentação gerados para cada modelo. </td> <td>High</td> <td>4</td> </tr> </table>
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th><b>User Story</b></th>
+    <th><b>Acceptance Criteria</b></th>
+    <th><b>Definition of Done (DoD)</b></th>
+    <th><b>Priority</b></th>
+    <th><b>Estimate (days)</b></th>
+  </tr>
+  <tr>
+    <td>As a backend engineer, I want to integrate the database with the application, so datasets are persistently stored and can be used by the machine learning model.</td>
+    <td>
+      - The database must allow efficient storage and querying of datasets.<br>
+      - It must support large volumes of data.<br>
+      - The integration must allow data updates and deletions.
+    </td>
+    <td>
+      - The database connection is configured and functional.<br>
+      - CRUD operations are tested and working.<br>
+      - Database load tests are validated.
+    </td>
+    <td>High</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>As a machine learning engineer, I want to deploy the final version of the model into production, so it is available for use through the backend API.</td>
+    <td>
+      - The model must be converted to a format suitable for production (e.g., pickle, TensorFlow SavedModel).<br>
+      - The model must load quickly.<br>
+      - The production version must be monitored for performance.
+    </td>
+    <td>
+      - The model is successfully running in a production environment.<br>
+      - Performance is monitored and validated under various load conditions.<br>
+      - Execution logs are configured to track failures.
+    </td>
+    <td>High</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>As a developer or machine learning engineer, I want to document the machine learning model and supporting software, so other team members and future developers can understand, maintain, and evolve the system with clarity.</td>
+    <td>
+      - The system architecture must be described with clear diagrams.<br>
+      - Key components of the code must be documented.<br>
+      - A detailed explanation of the ML model’s functioning must be provided.<br>
+      - Instructions for installing, configuring, and using the software must be present.
+    </td>
+    <td>
+      - Technical documentation is clear and standardized.<br>
+      - Updated diagrams are included.<br>
+      - All API endpoints are documented with examples.<br>
+      - Documentation has been reviewed and is accessible in the project repository.
+    </td>
+    <td>High</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>As a machine learning engineer, I want to train and tune the machine learning model, so it can provide accurate predictions based on the provided datasets.</td>
+    <td>
+      - The model must achieve a minimum accuracy of X%.<br>
+      - Overfitting and underfitting must be avoided.<br>
+      - Training logs and performance metrics must be available.
+    </td>
+    <td>
+      - The model has been tested and tuned in a development environment.<br>
+      - Accuracy reached the defined threshold.<br>
+      - The model results have been validated with test data.
+    </td>
+    <td>High</td>
+    <td>7</td>
+  </tr>
+  <tr>
+    <td>As a backend developer, I want to create the user table and the LGPD terms table in the database, so the system securely stores user information and term consent, meeting legal data protection requirements.</td>
+    <td>
+      - The User table must include essential fields with integrity constraints.<br>
+      - The LGPD Terms table must support multiple versions of the term.<br>
+      - The table relationships must ensure association with the latest term version.
+    </td>
+    <td>
+      - The tables were created in the database with integrity constraints.<br>
+      - Relationships between tables were implemented correctly.<br>
+      - Structure documented and reviewed for LGPD compliance.
+    </td>
+    <td>High</td>
+    <td>8</td>
+  </tr>
+  <tr>
+    <td>As a frontend developer, I want to create a user interface to view datasets, so users can visualize, filter, and explore the loaded data.</td>
+    <td>
+      - The interface must list the available datasets.<br>
+      - It must allow filtering and sorting of data.<br>
+      - It must be responsive and easy to navigate.
+    </td>
+    <td>
+      - Interface tested on different resolutions.<br>
+      - Filtering and sorting functionalities validated.<br>
+      - Visual feedback on errors or empty results.
+    </td>
+    <td>High</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>As a frontend developer, I want to create a user CRUD interface with LGPD compliance, so the system efficiently manages user data while meeting legal data protection requirements.</td>
+    <td>
+      - The registration interface must allow the addition of new users with mandatory fields.<br>
+      - User data editing and querying must be allowed.<br>
+      - User deletion must ensure anonymization according to LGPD.
+    </td>
+    <td>
+      - CRUD view implemented.<br>
+      - LGPD acceptance logic integrated.<br>
+      - Functional tests performed, and backend routes documented.
+    </td>
+    <td>High</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>As a backend/frontend developer, I want to implement terms of service and revocation functionality in the system, so users can accept or revoke terms of use and consent in compliance with LGPD.</td>
+    <td>
+      - Clear interface to display and accept the term.<br>
+      - History of accepted terms recorded.<br>
+      - Visible interface for consent revocation.<br>
+      - Administration management of terms available.
+    </td>
+    <td>
+      - Acceptance and revocation functionalities implemented and tested.<br>
+      - Complete documentation with examples and flow diagrams.<br>
+      - Reviewed for LGPD compliance.
+    </td>
+    <td>High</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>As a machine learning engineer, I want to study and compare different machine learning algorithms, so I can select the model that offers the best performance and accuracy for the problem.</td>
+    <td>
+      - Test at least 3 different algorithms.<br>
+      - Evaluate models using the same metrics.<br>
+      - Select the model based on performance and complexity.
+    </td>
+    <td>
+      - Comparative report of the models produced.<br>
+      - Best model validated with test data.<br>
+      - Experiment logs generated for each model.
+    </td>
+    <td>High</td>
+    <td>4</td>
+  </tr>
+</table>
+
 
 ## Burndown
 
@@ -219,30 +380,30 @@
     <tr>
       <th>ID</th>
       <th>User Story</th>
-      <th>Critérios de Aceitação</th>
+      <th>Acceptance Criteria</th>
       <th>Definition of Done (DoD)</th>
-      <th>Prioridade</th>
-      <th>Estimativa</th>
+      <th>Priority</th>
+      <th>Estimate</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>1</td>
-      <td>Como engenheiro de backend, quero desenvolver uma API para expor o modelo de machine learning, para que o frontend possa consumir os resultados gerados de forma segura e eficiente.</td>
+      <td>As a backend engineer, I want to develop an API to expose the machine learning model so that the frontend can securely and efficiently consume the generated results.</td>
       <td>
         <ul>
-          <li>API deve receber dados no formato correto (e.g., JSON).</li>
-          <li>Chamar o modelo de ML e retornar resultados.</li>
-          <li>Usar autenticação básica (e.g., OAuth 2.0).</li>
-          <li>Implementar logs de erro.</li>
+          <li>The API must receive data in the correct format (e.g., JSON).</li>
+          <li>Call the ML model and return results.</li>
+          <li>Use basic authentication (e.g., OAuth 2.0).</li>
+          <li>Implement error logs.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Documentação disponível (Swagger ou similar).</li>
-          <li>Testes unitários e de integração passando.</li>
-          <li>Segurança validada.</li>
-          <li>Desempenho testado para garantir tempos de resposta aceitáveis.</li>
+          <li>Documentation available (Swagger or similar).</li>
+          <li>Unit and integration tests passing.</li>
+          <li>Security validated.</li>
+          <li>Performance tested to ensure acceptable response times.</li>
         </ul>
       </td>
       <td>High</td>
@@ -250,22 +411,22 @@
     </tr>
     <tr>
       <td>2</td>
-      <td>Como usuário da SPC Grafeno, quero visualizar um gráfico interativo de RFM para facilitar a análise do comportamento do cliente.</td>
+      <td>As a user of SPC Grafeno, I want to visualize an interactive RFM chart to facilitate customer behavior analysis.</td>
       <td>
         <ul>
-          <li>Gráfico interativo com eixos R, F e M.</li>
-          <li>Filtros por período e segmento de clientes.</li>
-          <li>Tooltip/hover com detalhes do cliente.</li>
-          <li>Exportação de dados em CSV ou Excel.</li>
-          <li>Responsivo e rápido mesmo com grande volume de dados.</li>
+          <li>Interactive chart with R, F, and M axes.</li>
+          <li>Filters by period and customer segment.</li>
+          <li>Tooltip/hover with customer details.</li>
+          <li>Data export to CSV or Excel.</li>
+          <li>Responsive and fast, even with large data volumes.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Gráfico exibido corretamente com interatividade.</li>
-          <li>Filtros e exportação funcionando.</li>
-          <li>Desempenho validado para grande volume de dados.</li>
-          <li>Testado em diferentes dispositivos.</li>
+          <li>Chart displayed correctly with interactivity.</li>
+          <li>Filters and export working.</li>
+          <li>Performance validated for large data volumes.</li>
+          <li>Tested on different devices.</li>
         </ul>
       </td>
       <td>High</td>
@@ -273,19 +434,19 @@
     </tr>
     <tr>
       <td>3</td>
-      <td>Como desenvolvedor frontend, quero consumir a API do modelo de ML, para que o usuário possa submeter datasets e receber os resultados.</td>
+      <td>As a frontend developer, I want to consume the ML model API so that the user can submit datasets and receive results.</td>
       <td>
         <ul>
-          <li>Upload de dados e submissão à API.</li>
-          <li>Exibição clara dos resultados preditivos.</li>
-          <li>Mensagens de erro amigáveis.</li>
+          <li>Data upload and submission to the API.</li>
+          <li>Clear display of predictive results.</li>
+          <li>User-friendly error messages.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Conexão com a API validada.</li>
-          <li>Testes de interface realizados.</li>
-          <li>Feedback visual consistente com a experiência do usuário.</li>
+          <li>API connection validated.</li>
+          <li>Interface tests conducted.</li>
+          <li>Visual feedback consistent with the user experience.</li>
         </ul>
       </td>
       <td>High</td>
@@ -293,19 +454,19 @@
     </tr>
     <tr>
       <td>4</td>
-      <td>Como analista de dados, quero melhorar a visualização do dashboard para que fique mais claro e compreensível.</td>
+      <td>As a data analyst, I want to improve the dashboard visualization to make it clearer and more understandable.</td>
       <td>
         <ul>
-          <li>Dados do dashboard conformes com o backend.</li>
-          <li>Melhorias no design aplicadas.</li>
-          <li>Mudança para conceitos corretos.</li>
+          <li>Dashboard data matches the backend.</li>
+          <li>Design improvements applied.</li>
+          <li>Changes to correct concepts.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Dashboard com melhorias implementadas.</li>
-          <li>Dados atualizados e interligados ao sistema.</li>
-          <li>Feedback positivo do time.</li>
+          <li>Dashboard with implemented improvements.</li>
+          <li>Updated data and linked to the system.</li>
+          <li>Positive feedback from the team.</li>
         </ul>
       </td>
       <td>High</td>
@@ -313,20 +474,20 @@
     </tr>
     <tr>
       <td>5</td>
-      <td>Como usuário, quero visualizar uma tabela que agrupe clientes com métricas RFM e clusters, para facilitar a análise segmentada.</td>
+      <td>As a user, I want to view a table grouping customers with RFM metrics and clusters, to facilitate segmented analysis.</td>
       <td>
         <ul>
-          <li>Tabela exibe Nome, RFM e Clusters corretamente.</li>
-          <li>Agrupamento visual por cluster.</li>
-          <li>Filtros e ordenação disponíveis.</li>
-          <li>Design responsivo e alinhado ao estilo do sistema.</li>
+          <li>Table displays Name, RFM, and Clusters correctly.</li>
+          <li>Visual grouping by cluster.</li>
+          <li>Filters and sorting available.</li>
+          <li>Responsive design aligned with the system style.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Tabela implementada e funcional.</li>
-          <li>Testada em diferentes dispositivos.</li>
-          <li>Feedback dos stakeholders implementado.</li>
+          <li>Table implemented and functional.</li>
+          <li>Tested on different devices.</li>
+          <li>Feedback from stakeholders implemented.</li>
         </ul>
       </td>
       <td>High</td>
@@ -334,20 +495,20 @@
     </tr>
     <tr>
       <td>6</td>
-      <td>Como desenvolvedor, quero atualizar o endpoint PUT de perfil do usuário para registrar um log sobre mudanças nos termos de LGPD e itens opcionais.</td>
+      <td>As a developer, I want to update the PUT user profile endpoint to log changes in LGPD terms and optional items.</td>
       <td>
         <ul>
-          <li>Log com data e hora para atualizações de termos LGPD.</li>
-          <li>Registro de itens opcionais alterados com novos valores.</li>
-          <li>Persistência do log na tabela de LGPD associada ao usuário.</li>
-          <li>Acessibilidade para auditoria pelo administrador.</li>
+          <li>Log with date and time for LGPD term updates.</li>
+          <li>Record of optional items changed with new values.</li>
+          <li>Persistence of the log in the LGPD table associated with the user.</li>
+          <li>Accessibility for auditing by the administrator.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Endpoint atualizado com logs funcionando corretamente.</li>
-          <li>Histórico de alterações completo disponível.</li>
-          <li>Testes validados.</li>
+          <li>Endpoint updated with working logs.</li>
+          <li>Complete change history available.</li>
+          <li>Tests validated.</li>
         </ul>
       </td>
       <td>High</td>
@@ -355,20 +516,20 @@
     </tr>
     <tr>
       <td>7</td>
-      <td>Como desenvolvedor, quero configurar tarefas assíncronas com Celery para backups de dados LGPD no MinIO, garantindo segurança e recuperação.</td>
+      <td>As a developer, I want to configure asynchronous tasks with Celery for LGPD data backups in MinIO, ensuring security and recovery.</td>
       <td>
         <ul>
-          <li>Configurar tarefa Celery para backups periódicos.</li>
-          <li>Exportação de dados para MinIO com criptografia.</li>
-          <li>Gerenciamento de erros e retentativas.</li>
-          <li>Notificação de falhas ao administrador.</li>
+          <li>Configure Celery task for periodic backups.</li>
+          <li>Data export to MinIO with encryption.</li>
+          <li>Error handling and retries.</li>
+          <li>Failure notification to the administrator.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Backup no MinIO implementado e testado.</li>
-          <li>Dados criptografados e versionados.</li>
-          <li>Documentação completa.</li>
+          <li>Backup in MinIO implemented and tested.</li>
+          <li>Encrypted and versioned data.</li>
+          <li>Complete documentation.</li>
         </ul>
       </td>
       <td>High</td>
@@ -376,19 +537,19 @@
     </tr>
     <tr>
       <td>8</td>
-      <td>Como gestor de produtos, quero aprimorar os clusters de clientes para priorizar aqueles com maior potencial de conversão e retenção.</td>
+      <td>As a product manager, I want to improve customer clusters to prioritize those with higher conversion and retention potential.</td>
       <td>
         <ul>
-          <li>Clusters criados com base em dados históricos.</li>
-          <li>Etiquetas de prioridade para cada cluster.</li>
-          <li>Separação interpretável baseada em variáveis relevantes.</li>
+          <li>Clusters created based on historical data.</li>
+          <li>Priority labels for each cluster.</li>
+          <li>Interpretable separation based on relevant variables.</li>
         </ul>
       </td>
       <td>
         <ul>
-          <li>Modelo de clustering implementado e treinado.</li>
-          <li>Documentação revisada e acessível.</li>
-          <li>Validação pelos stakeholders concluída.</li>
+          <li>Clustering model implemented and trained.</li>
+          <li>Documentation reviewed and accessible.</li>
+          <li>Validation by stakeholders completed.</li>
         </ul>
       </td>
       <td>Medium</td>
@@ -396,6 +557,7 @@
     </tr>
   </tbody>
 </table>
+
 
 ## Burndown
 
